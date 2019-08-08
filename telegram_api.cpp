@@ -11,7 +11,11 @@ int send_message(std::string mess) {
             "&text=" + mess;
     curl_easy_setopt(curl, CURLOPT_URL, req.c_str());
 
-    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_func);
+    if (getenv("SET_PROXY")) {
+        curl_easy_setopt(curl, CURLOPT_PROXY, getenv("SET_PROXY"));
+    }
+
+    //curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_func);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &mess);
     CURLcode res;
     res = curl_easy_perform(curl);

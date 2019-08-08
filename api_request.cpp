@@ -18,7 +18,11 @@ std::size_t write_func(void* ptr, size_t size, size_t nmemb, std::string* s) {
 std::string get_markets()  {
     std::string data;
     CURL *curl = curl_easy_init();
-    curl_easy_setopt(curl, CURLOPT_URL, C_GET_MARKETS);
+    curl_easy_setopt(curl, CURLOPT_URL, C_GET_MARKETS.c_str());
+
+    if (getenv("SET_PROXY")) {
+        curl_easy_setopt(curl, CURLOPT_PROXY, getenv("SET_PROXY"));
+    }
 
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_func);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &data);
@@ -34,10 +38,14 @@ std::string get_markets()  {
     return data;
 }
 
-std::string execute_request (char* req) {
+std::string execute_request (const char* req) {
     std::string data;
     CURL *curl = curl_easy_init();
     curl_easy_setopt(curl, CURLOPT_URL, req);
+
+    if (getenv("SET_PROXY")) {
+        curl_easy_setopt(curl, CURLOPT_PROXY, getenv("SET_PROXY"));
+    }
 
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_func);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &data);

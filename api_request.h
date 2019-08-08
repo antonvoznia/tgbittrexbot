@@ -18,7 +18,7 @@ std::size_t write_func(void* ptr, size_t size, size_t nmemb, std::string* s);
 
 std::string get_markets();
 
-std::string execute_request(char*);
+std::string execute_request(const char*);
 
 #endif //CURRENCY_API_REQUEST_H
 
