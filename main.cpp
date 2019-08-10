@@ -1,9 +1,10 @@
 #include <iostream>
 
+#include <nlohmann/json.hpp>
+
 #include "api_request.h"
 #include "bitt_api.h"
 #include "telegram_api.h"
-#include <nlohmann/json.hpp>
 
 using namespace nlohmann;
 
@@ -34,6 +35,7 @@ int main() {
 
 
 std::string create_summary_mess(std::string btc, std::string eth, std::string ltc) {
+    // %0A - new line in http(s) requests
     std::string mess = "Current prices of Crypto-currencies: %0A%0A";
     mess += "BTC " + btc + " $ %0A";
     mess += "ETH " + eth + " $ %0A";

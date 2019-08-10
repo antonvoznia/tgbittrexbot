@@ -29,8 +29,10 @@ std::string get_markets()  {
     CURLcode res;
     res = curl_easy_perform(curl);
     if (res == CURLE_COULDNT_CONNECT) {
+        write_logs("get_markets() " + C_CONN_PROBLEM);
         return C_CONN_PROBLEM;
     } else if (res != 0) {
+        write_logs("get_markets() " + C_ANY_PROBLEM);
         return C_ANY_PROBLEM;
     }
     curl_easy_cleanup(curl);
@@ -52,8 +54,10 @@ std::string execute_request (const char* req) {
     CURLcode res;
     res = curl_easy_perform(curl);
     if (res == CURLE_COULDNT_CONNECT) {
+        write_logs("execute_request() " + C_CONN_PROBLEM);
         return C_CONN_PROBLEM;
     } else if (res != 0) {
+        write_logs("execute_request() " + C_ANY_PROBLEM);
         return C_ANY_PROBLEM;
     }
     curl_easy_cleanup(curl);

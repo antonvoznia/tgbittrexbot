@@ -7,12 +7,10 @@
 #include <iostream>
 
 #include "bitt_api.h"
+#include "logs.h"
 
 #ifndef CURRENCY_API_REQUEST_H
 #define CURRENCY_API_REQUEST_H
-
-const std::string C_CONN_PROBLEM = "Problem with connection!";
-const std::string C_ANY_PROBLEM = "Problem to get data!";
 
 std::size_t write_func(void* ptr, size_t size, size_t nmemb, std::string* s);
 
