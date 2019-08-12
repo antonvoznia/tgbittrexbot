@@ -4,6 +4,15 @@
 
 #include "local_db.h"
 
+static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
+    int i;
+    for(i = 0; i<argc; i++) {
+        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+    }
+    printf("\n");
+    return 0;
+}
+
 int subscribe_user(user u) {
     sqlite3 *db;
     int rc;
@@ -16,13 +25,12 @@ int subscribe_user(user u) {
         write_logs("subscribe_user() cann't open db");
         return rc;
     }
-    std::string sql = " INSERT INTO TABLE " + db_name
-                      + " VALUES ( " + u.name + ", " + std::to_string(u.uid) + ", "
+    std::string sql = "INSERT INTO USERS (NAME, UID, CHID, ACTIVE) VALUES ( '" + u.name + "', " + std::to_string(u.uid) + ", "
                       + std::to_string(u.chid) + ", " +std::to_string(u.active) + " );";
-    rc = sqlite3_exec(db, sql.c_str(), NULL, NULL, &zErrMsg);
+    rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
     if (rc != SQLITE_OK) {
-        write_logs("subscribe_user() " + std::string(zErrMsg));
+        write_logs("subscribe_user()\n" + sql + "\n" + std::string(zErrMsg));
         sqlite3_free(zErrMsg);
         return rc;
     }

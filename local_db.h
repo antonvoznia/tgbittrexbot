@@ -11,7 +11,7 @@
 #ifndef CURRENCY_LOCAL_DB_H
 #define CURRENCY_LOCAL_DB_H
 
-std::string db_name = "local.db";
+const std::string db_name = "local.db";
 
 int subscribe_user(user u);
 

@@ -16,10 +16,10 @@ private:
 public:
     std::string name;
     unsigned long int uid;
-    unsigned long int chid;
+    long long int chid;
     bool active;
 
-    user(std::string name, unsigned long int uid, unsigned long int chid, bool active);
+    user(std::string name, unsigned long int uid, long long int chid, bool active);
 };
 
 
