@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -lcurl")
 
-add_executable(Currency bitt_api.cpp api_request.cpp main.cpp telegram_api.h telegram_api.cpp local_db.cpp local_db.h logs.cpp)
+add_executable(Currency bitt_api.cpp api_request.cpp main.cpp telegram_api.h telegram_api.cpp local_db.cpp local_db.h logs.cpp models/user.cpp models/user.h)
 add_executable(tests tests/unit_tests.cpp logs.cpp)
 
 target_link_libraries(Currency curl)

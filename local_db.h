@@ -9,4 +9,6 @@
 
 std::string db_name = "local.db";
 
+void subscribe_user();
+
 #endif //CURRENCY_LOCAL_DB_H
