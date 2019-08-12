@@ -3,12 +3,16 @@
 //
 
 #include <string>
+#include <sqlite3.h>
+
+#include "logs.h"
+#include "models/user.h"
 
 #ifndef CURRENCY_LOCAL_DB_H
 #define CURRENCY_LOCAL_DB_H
 
 std::string db_name = "local.db";
 
-void subscribe_user();
+int subscribe_user(user u);
 
 #endif //CURRENCY_LOCAL_DB_H
