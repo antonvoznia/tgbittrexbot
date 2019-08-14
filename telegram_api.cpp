@@ -25,7 +25,7 @@ int send_message(std::string mess) {
     return res;
 }
 
-int get_updates(std::string out) {
+int get_updates(std::string * out) {
     std::string data;
     CURL *curl = curl_easy_init();
     std::string req = TELEGRAM_API + T_GET_UPDATES;
@@ -47,4 +47,5 @@ int get_updates(std::string out) {
         return res;
     }
     curl_easy_cleanup(curl);
+    *out = data;
 }
