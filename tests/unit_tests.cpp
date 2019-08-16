@@ -21,7 +21,7 @@ int main() {
     std::cout << "Last update: " << get_last_update() << std::endl;
     std::cout << "New udpate: " << update_last_update(13, get_last_update()) << std::endl;
     std::queue<unsigned long int> all_users;
-    std::cout << "Select all users: " << select_all_users(all_users) << std::endl;
+    //std::cout << "Select all users: " << select_active_users()_users(all_users) << std::endl;
 
     while (all_users.size()) {
         std::cout << "User id: " << all_users.front() << std::endl;

@@ -3,6 +3,7 @@
 //
 
 #include "api_request.h"
+#include "logs.h"
 
 std::size_t write_func(void* ptr, size_t size, size_t nmemb, std::string* s) {
     size_t newLength = size*nmemb;
@@ -10,6 +11,7 @@ std::size_t write_func(void* ptr, size_t size, size_t nmemb, std::string* s) {
         s->append((char*) ptr, newLength);
     } catch (std::bad_alloc &e) {
         std::cerr << "Bad allocation!!! write_func()" << std::endl;
+        write_logs("Bad allocation!!! write_func()");
         return 0;
     }
     return newLength;

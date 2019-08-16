@@ -48,7 +48,7 @@ int main() {
             auto j_eth = json::parse(res_eth);
             auto j_ltc = json::parse(res_ltc);
 
-            std::string mess = create_summary_mess(j_btc["baseVolume"], j_eth["baseVolume"], j_ltc["baseVolume"]);
+            std::string mess = create_summary_mess(j_btc["high"], j_eth["high"], j_ltc["high"]);
 
             std::queue<unsigned long int> all_users;
             select_active_users(all_users);
