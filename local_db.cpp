@@ -3,13 +3,15 @@
 //
 
 #include "local_db.h"
+#include "stdio.h"
 
 static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
     int i;
+
     for(i = 0; i<argc; i++) {
         printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
     }
-    printf("\n");
+    printf("___\n");
     return 0;
 }
 
@@ -17,7 +19,6 @@ int exec_query(std::string query) {
     sqlite3 *db;
     int rc;
     char *zErrMsg = 0;
-
 
     rc = sqlite3_open(db_name.c_str(), &db);
 
@@ -45,8 +46,49 @@ int subscribe_user(user u) {
     return exec_query(query);
 }
 
-int select_user(user u) {
-    std::string query = "SELECT * FROM USERS;";
+// return UID if it was success
+// return -1 in FAIL case
+unsigned long int select_user(user u) {
+    sqlite3* db;
+    sqlite3_stmt* stmt = 0;
+
+    int rc = sqlite3_open(db_name.c_str(), &db);
+
+    if (rc) {
+        write_logs("exec_query() cann't open db");
+        return rc;
+    }
+
+    rc = sqlite3_prepare_v2( db, "SELECT UID FROM USERS WHERE UID = ?;", -1, &stmt, 0 );
+    rc = sqlite3_exec( db, "BEGIN TRANSACTION", 0, 0, 0 );
+
+    //bind first parameter
+    rc = sqlite3_bind_int64(stmt, 1, 14);
+
+    unsigned long int result = 0;
+
+    if (sqlite3_step( stmt ) == SQLITE_ROW) {
+        result = sqlite3_column_int(stmt, 0);
+    }
+
+    //  Step, Clear and Reset the statement after each bind.
+    sqlite3_step( stmt );
+    sqlite3_clear_bindings( stmt );
+    sqlite3_reset( stmt );
+    char *zErrMsg = 0;  //  Can perhaps display the error message if rc != SQLITE_OK.
+    sqlite3_exec( db, "END TRANSACTION", 0, 0, &zErrMsg );   //  End the transaction.
+
+    sqlite3_finalize( stmt );
+
+    sqlite3_close(db);
+
+    sqlite3_close(db);
+    return result;
+}
+
+int update_subscribe(user u, bool active) {
+    std::string query = "UPDATE USERS set ACTIVE = " + std::to_string(active) + " WHERE UID = " + std::to_string(u.uid) + ";";
+    printf ("%s\n", query.c_str());
 
     return exec_query(query);
 }

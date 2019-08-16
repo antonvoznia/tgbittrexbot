@@ -12,4 +12,4 @@ add_executable(tests tests/unit_tests.cpp bitt_api.cpp api_request.cpp telegram_
 
 target_link_libraries(Currency curl sqlite3)
 
-#target_link_libraries(tests curl sqlite3)
+target_link_libraries(tests curl sqlite3)

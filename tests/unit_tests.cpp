@@ -2,6 +2,8 @@
 // Created by anton on 8/10/19.
 //
 
+#include <iostream>
+
 #include "../logs.h"
 #include "../local_db.h"
 
@@ -10,7 +12,11 @@ int main() {
     write_logs("test message...2");
     user u = user("Name3", 1, -123, true);
 
-    rc += subscribe_user(u);
+    //rc += subscribe_user(u);
+    u = user("Name1", 14, -123, true);
+    rc = select_user(u);
+    std::cout << "UID = " << rc << std::endl;
+    std::cout << update_subscribe(u, false) << std::endl;
 
 
     return rc;

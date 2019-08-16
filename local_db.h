@@ -16,6 +16,7 @@ const std::string db_name = "local.db";
 int exec_query(std::string query);
 
 int subscribe_user(user u);
-int select_user(user u);
+unsigned long int select_user(user u);
+int update_subscribe(user u, bool active);
 
 #endif //CURRENCY_LOCAL_DB_H
