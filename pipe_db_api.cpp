@@ -42,11 +42,11 @@ void process_update() {
                 update_subscribe(new_user, true);
             }
 
-            //to do
-            //adding the user into DB and send message if it success, if he was added before.
-        } else if (true) {
-            //add unsubscribe
-
+        } else if (text.find("unsubscribe") == 1) {
+            json from = el["message"]["from"];
+            long long int chid = el["message"]["chat"]["id"].get<long long int>();
+            user new_user(from["username"].get<std::string>(), from["id"].get<unsigned long int>(), chid, true);
+            update_subscribe(new_user, false);
         }
     }
 

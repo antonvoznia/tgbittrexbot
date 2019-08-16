@@ -69,10 +69,13 @@ int main() {
 
 std::string create_summary_mess(std::string btc, std::string eth, std::string ltc) {
     // %0A - new line in http(s) requests
+    std::string f_btc = btc.substr(0, btc.find("."));
+    std::string f_eth = eth.substr(0, eth.find("."));
+    std::string f_ltc = ltc.substr(0, ltc.find("."));
     std::string mess = "Current prices of Crypto-currencies: %0A%0A";
-    mess += "BTC " + btc + " $ %0A";
-    mess += "ETH " + eth + " $ %0A";
-    mess += "LTC " + ltc + " $ %0A";
+    mess += "BTC " + f_btc + " $ %0A";
+    mess += "ETH " + f_eth + " $ %0A";
+    mess += "LTC " + f_ltc + " $ %0A";
 
     return mess;
 }
