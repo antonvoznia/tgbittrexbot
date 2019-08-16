@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <queue>
 
 #include "../logs.h"
 #include "../local_db.h"
@@ -19,6 +20,13 @@ int main() {
 //    std::cout << update_subscribe(u, false) << std::endl;
     std::cout << "Last update: " << get_last_update() << std::endl;
     std::cout << "New udpate: " << update_last_update(13, get_last_update()) << std::endl;
+    std::queue<unsigned long int> all_users;
+    std::cout << "Select all users: " << select_all_users(all_users) << std::endl;
+
+    while (all_users.size()) {
+        std::cout << "User id: " << all_users.front() << std::endl;
+        all_users.pop();
+    }
 
 
     return rc;

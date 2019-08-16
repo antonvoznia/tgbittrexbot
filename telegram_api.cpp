@@ -6,9 +6,9 @@
 #include "logs.h"
 
 
-int send_message(std::string mess) {
+int send_message(std::string mess, int chat_id) {
     CURL *curl = curl_easy_init();
-    std::string req = TELEGRAM_API + T_SEND_MESSAGE + "?chat_id=" + T_CHAT_ID +
+    std::string req = TELEGRAM_API + T_SEND_MESSAGE + "?chat_id=" + std::to_string(chat_id) +
             "&text=" + mess;
     curl_easy_setopt(curl, CURLOPT_URL, req.c_str());
 
@@ -16,7 +16,7 @@ int send_message(std::string mess) {
         curl_easy_setopt(curl, CURLOPT_PROXY, getenv("SET_PROXY"));
     }
 
-    //curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_func);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_func);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &mess);
     CURLcode res;
     res = curl_easy_perform(curl);

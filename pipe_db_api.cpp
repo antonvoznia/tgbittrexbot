@@ -21,7 +21,7 @@ void process_update() {
 
 
         // skip old updates
-        if (last_update > update_id) {
+        if (last_update >= update_id) {
             continue;
         }
 

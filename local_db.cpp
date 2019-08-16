@@ -63,7 +63,7 @@ unsigned long int select_user(user u) {
     rc = sqlite3_exec( db, "BEGIN TRANSACTION", 0, 0, 0 );
 
     //bind first parameter
-    rc = sqlite3_bind_int64(stmt, 1, 14);
+    rc = sqlite3_bind_int64(stmt, 1, u.uid);
 
     unsigned long int result = 0;
 
@@ -110,6 +110,43 @@ int get_last_update() {
 
     if (sqlite3_step( stmt ) == SQLITE_ROW) {
         result = sqlite3_column_int(stmt, 0);
+    }
+
+    //  Step, Clear and Reset the statement after each bind.
+    sqlite3_step( stmt );
+    sqlite3_clear_bindings( stmt );
+    sqlite3_reset( stmt );
+    char *zErrMsg = 0;  //  Can perhaps display the error message if rc != SQLITE_OK.
+    sqlite3_exec( db, "END TRANSACTION", 0, 0, &zErrMsg );   //  End the transaction.
+
+    sqlite3_finalize( stmt );
+
+    sqlite3_close(db);
+
+    sqlite3_close(db);
+    return result;
+}
+
+int select_active_users(std::queue<unsigned long int>& all_users) {
+
+    sqlite3* db;
+    sqlite3_stmt* stmt = 0;
+
+    int rc = sqlite3_open(db_name.c_str(), &db);
+
+    if (rc) {
+        write_logs("exec_query() cann't open db");
+        return rc;
+    }
+
+    rc = sqlite3_prepare_v2( db, "SELECT CHID FROM USERS WHERE ACTIVE = TRUE;", -1, &stmt, 0 );
+    rc = sqlite3_exec( db, "BEGIN TRANSACTION", 0, 0, 0 );
+
+    unsigned long int result = 0;
+
+    while (sqlite3_step( stmt ) == SQLITE_ROW) {
+        result = sqlite3_column_int(stmt, 0);
+        all_users.push(result);
     }
 
     //  Step, Clear and Reset the statement after each bind.

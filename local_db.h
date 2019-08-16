@@ -3,6 +3,7 @@
 //
 
 #include <string>
+#include <queue>
 #include <sqlite3.h>
 
 #include "logs.h"
@@ -18,6 +19,7 @@ int exec_query(std::string query);
 int subscribe_user(user u);
 unsigned long int select_user(user u);
 int update_subscribe(user u, bool active);
+int select_active_users(std::queue<unsigned long int>& all_users);
 
 int get_last_update();
 int update_last_update(int new_id, int last_id);
