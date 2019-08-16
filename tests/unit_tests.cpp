@@ -13,10 +13,12 @@ int main() {
     user u = user("Name3", 1, -123, true);
 
     //rc += subscribe_user(u);
-    u = user("Name1", 14, -123, true);
-    rc = select_user(u);
-    std::cout << "UID = " << rc << std::endl;
-    std::cout << update_subscribe(u, false) << std::endl;
+//    u = user("Name1", 14, -123, true);
+//    rc = select_user(u);
+//    std::cout << "UID = " << rc << std::endl;
+//    std::cout << update_subscribe(u, false) << std::endl;
+    std::cout << "Last update: " << get_last_update() << std::endl;
+    std::cout << "New udpate: " << update_last_update(13, get_last_update()) << std::endl;
 
 
     return rc;

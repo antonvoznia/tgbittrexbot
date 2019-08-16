@@ -13,9 +13,17 @@ void process_update() {
     auto j_upd = json::parse(result);
     j_upd = j_upd["result"];
 
+    int last_update = get_last_update();
+    int update_id = -1;
     for (auto el : j_upd) {
 
-        //int update_id = el["update_id"].get<int>();
+        update_id = el["update_id"].get<int>();
+
+
+        // skip old updates
+        if (last_update > update_id) {
+            continue;
+        }
 
         std::string text = el["message"]["text"];
 
@@ -40,6 +48,10 @@ void process_update() {
             //add unsubscribe
 
         }
+    }
+
+    if (update_id != -1) {
+        update_last_update(update_id, last_update);
     }
 }
 

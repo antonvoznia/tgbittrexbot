@@ -19,4 +19,7 @@ int subscribe_user(user u);
 unsigned long int select_user(user u);
 int update_subscribe(user u, bool active);
 
+int get_last_update();
+int update_last_update(int new_id, int last_id);
+
 #endif //CURRENCY_LOCAL_DB_H

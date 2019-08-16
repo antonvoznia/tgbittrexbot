@@ -88,7 +88,48 @@ unsigned long int select_user(user u) {
 
 int update_subscribe(user u, bool active) {
     std::string query = "UPDATE USERS set ACTIVE = " + std::to_string(active) + " WHERE UID = " + std::to_string(u.uid) + ";";
-    printf ("%s\n", query.c_str());
+
+    return exec_query(query);
+}
+
+int get_last_update() {
+    sqlite3* db;
+    sqlite3_stmt* stmt = 0;
+
+    int rc = sqlite3_open(db_name.c_str(), &db);
+
+    if (rc) {
+        write_logs("exec_query() cann't open db");
+        return rc;
+    }
+
+    rc = sqlite3_prepare_v2( db, "SELECT ID FROM LAST_UPDATE;", -1, &stmt, 0 );
+    rc = sqlite3_exec( db, "BEGIN TRANSACTION", 0, 0, 0 );
+
+    unsigned long int result = 0;
+
+    if (sqlite3_step( stmt ) == SQLITE_ROW) {
+        result = sqlite3_column_int(stmt, 0);
+    }
+
+    //  Step, Clear and Reset the statement after each bind.
+    sqlite3_step( stmt );
+    sqlite3_clear_bindings( stmt );
+    sqlite3_reset( stmt );
+    char *zErrMsg = 0;  //  Can perhaps display the error message if rc != SQLITE_OK.
+    sqlite3_exec( db, "END TRANSACTION", 0, 0, &zErrMsg );   //  End the transaction.
+
+    sqlite3_finalize( stmt );
+
+    sqlite3_close(db);
+
+    sqlite3_close(db);
+    return result;
+}
+
+int update_last_update(int new_id, int last_id) {
+    std::string query = "UPDATE LAST_UPDATE"
+                         " set ID = " + std::to_string(new_id) + " WHERE ID = " + std::to_string(last_id) + ";";
 
     return exec_query(query);
 }
