@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Currency"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/anton/Development/MyWork/TGBittrixBot"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/anton/Development/MyWork/TGBittrixBot"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/anton/Development/MyWork/TGBittrixBot"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Currency">
+				<Option output="/home/anton/Development/MyWork/TGBittrixBot/Currency" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/anton/Development/MyWork/TGBittrixBot"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 Currency"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Currency/fast">
+				<Option output="/home/anton/Development/MyWork/TGBittrixBot/Currency" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/anton/Development/MyWork/TGBittrixBot"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 Currency/fast"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tests">
+				<Option output="/home/anton/Development/MyWork/TGBittrixBot/tests" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/anton/Development/MyWork/TGBittrixBot"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 tests"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tests/fast">
+				<Option output="/home/anton/Development/MyWork/TGBittrixBot/tests" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/anton/Development/MyWork/TGBittrixBot"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 tests/fast"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/anton/Development/MyWork/TGBittrixBot/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/api_request.cpp">
+			<Option target="Currency"/>
+			<Option target="tests"/>
+		</Unit>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/api_request.h">
+			<Option target="Currency"/>
+			<Option target="tests"/>
+		</Unit>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/bitt_api.cpp">
+			<Option target="Currency"/>
+			<Option target="tests"/>
+		</Unit>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/bitt_api.h">
+			<Option target="Currency"/>
+			<Option target="tests"/>
+		</Unit>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/local_db.cpp">
+			<Option target="Currency"/>
+			<Option target="tests"/>
+		</Unit>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/local_db.h">
+			<Option target="Currency"/>
+			<Option target="tests"/>
+		</Unit>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/logs.cpp">
+			<Option target="Currency"/>
+			<Option target="tests"/>
+		</Unit>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/logs.h">
+			<Option target="Currency"/>
+			<Option target="tests"/>
+		</Unit>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/main.cpp">
+			<Option target="Currency"/>
+		</Unit>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/models/user.cpp">
+			<Option target="Currency"/>
+			<Option target="tests"/>
+		</Unit>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/models/user.h">
+			<Option target="Currency"/>
+			<Option target="tests"/>
+		</Unit>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/pipe_db_api.cpp">
+			<Option target="Currency"/>
+		</Unit>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/pipe_db_api.h">
+			<Option target="Currency"/>
+		</Unit>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/telegram_api.cpp">
+			<Option target="Currency"/>
+			<Option target="tests"/>
+		</Unit>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/telegram_api.h">
+			<Option target="Currency"/>
+			<Option target="tests"/>
+		</Unit>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/tests/unit_tests.cpp">
+			<Option target="tests"/>
+		</Unit>
+		<Unit filename="/home/anton/Development/MyWork/TGBittrixBot/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

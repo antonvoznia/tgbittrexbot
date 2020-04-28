@@ -2,4 +2,12 @@ example.json
 
 cmake-build-debug
 
+local.db
+
+CMakeFiles
+
+BittrexApiExample.png
+
+logs.txt
+
 .idea

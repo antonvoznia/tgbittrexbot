@@ -20,7 +20,7 @@ std::size_t write_func(void* ptr, size_t size, size_t nmemb, std::string* s) {
 std::string get_markets()  {
     std::string data;
     CURL *curl = curl_easy_init();
-    curl_easy_setopt(curl, CURLOPT_URL, C_GET_MARKETS.c_str());
+    curl_easy_setopt(curl, CURLOPT_URL, C_MARKETS.c_str());
 
     if (getenv("SET_PROXY")) {
         curl_easy_setopt(curl, CURLOPT_PROXY, getenv("SET_PROXY"));

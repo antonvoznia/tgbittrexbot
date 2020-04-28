@@ -7,7 +7,7 @@
 #ifndef CURRENCY_BITT_API_H
 #define CURRENCY_BITT_API_H
 
-const std::string C_GET_MARKETS = "https://api.bittrex.com/v3/markets/";
+//const std::string C_GET_MARKETS = "https://api.bittrex.com/v3/markets/";
 
 const std::string C_MARKETS = "https://api.bittrex.com/v3/markets/";
 

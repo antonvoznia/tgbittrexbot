@@ -139,7 +139,7 @@ int select_active_users(std::queue<unsigned long int>& all_users) {
         return rc;
     }
 
-    rc = sqlite3_prepare_v2( db, "SELECT CHID FROM USERS WHERE ACTIVE = TRUE;", -1, &stmt, 0 );
+    rc = sqlite3_prepare_v2( db, "SELECT CHID FROM USERS WHERE ACTIVE = 1;", -1, &stmt, 0 );
     rc = sqlite3_exec( db, "BEGIN TRANSACTION", 0, 0, 0 );
 
     unsigned long int result = 0;
